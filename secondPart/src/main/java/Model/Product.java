@@ -26,6 +26,7 @@ public class Product {
     public String getImageUrl(){
         return "store-images/"+imageUrl;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -38,5 +39,4 @@ public class Product {
     public int hashCode() {
         return Objects.hash(name, imageUrl, price, id);
     }
-
 }

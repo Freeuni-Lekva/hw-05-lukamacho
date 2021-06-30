@@ -12,7 +12,6 @@ public class Connector {
     private final static String serverName = "localhost";
     private final static String baseName = "StoreBase";
     public final static String tableName = "products";
-    private static Statement statement;
 
     public static Connection getInstance() throws ClassNotFoundException, SQLException {
         if (con == null) {
@@ -22,7 +21,6 @@ public class Connector {
                     con = DriverManager.getConnection("jdbc:mysql://", userName, password);
                     Statement st = con.createStatement();
                     st.execute("Use " + baseName );
-                    System.out.println("avige");
                 }
             }
         }

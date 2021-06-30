@@ -35,18 +35,20 @@ public class Session {
     }
     public void updateList(HttpServletRequest request){
         Map<Product, Integer> newTable = new HashMap<>();
-
+        Map<String,String[]> es = request.getParameterMap();
+        System.out.println(es.size());
+        for(String st : es.keySet()){
+            System.out.println(st);
+        }
         for(Product product: shoppingTable.keySet()) {
-
-
             int count = shoppingTable.get(product);
             try {
-                count = Integer.parseInt(request.getParameter(product.getid()));
+                count = Integer.parseInt(es.get(product.getid())[0]);
             } catch (NumberFormatException ignored) {
-                System.out.println("Number didnt parsed");
+                System.out.println("illegal number format");
             }
 
-            if (count != 0) {
+            if (count > 0) {
                 newTable.put(product, count);
             }
         }

@@ -9,11 +9,12 @@
     <title> <%=p.getName()%></title>
 </head>
 <body>
-      <h1> <%=p.getImageUrl()%> </h1>
+      <h1> <%=p.getName()%> </h1>
       <img src = <%= p.getImageUrl() %> alt = "not found" >
-      <form action="product" method="Post">
+      <form action="/product" method="get">
+            <input name="productID" type="hidden" value="<%=p.getid()%>"/>
             <%=p.getPrice()%> <input type="submit" value="Add to Cart">
-            <input name="product" type="hidden" value="HC"/>
+
        </form>
 </body>
 </html>

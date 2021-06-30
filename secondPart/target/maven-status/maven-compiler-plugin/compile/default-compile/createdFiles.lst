@@ -1,3 +1,4 @@
+Model/ProductTest.class
 Model/Connector.class
 Controller/shoppingServlet.class
 Controller/Listener.class
@@ -5,4 +6,5 @@ Model/Product.class
 Controller/ProductServlet.class
 Model/Catalog.class
 Controller/Session.class
+Model/CatalogTest.class
 Controller/SessionListener.class

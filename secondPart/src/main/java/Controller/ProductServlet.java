@@ -18,17 +18,25 @@ import java.sql.SQLException;
 public class ProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("faa");
+        Session session = (Session)req.getSession().getAttribute("session");
+        String  ToAdd = (String)req.getParameter("productID");
+        Product productToAdd = null;
+        try {
+            productToAdd = Catalog.findProduct(ToAdd);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        session.addToList(productToAdd);
+        Session mysession = (Session)req.getSession().getAttribute("session");
+        BigDecimal totalCost = mysession.totalSum();
+        req.setAttribute("totalCost", totalCost);
+        req.getRequestDispatcher("/cartList.jsp").forward(req, resp);
+
     }
     @Override
     protected void doPost(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("fsjada");
         Session session = (Session)req.getSession().getAttribute("session");
-        String  ToAdd = (String)req.getSession().getAttribute("productid");
-        Product productToAdd = null;
-        System.out.println(ToAdd);
-        System.out.println("FA");
-        session.addToList(productToAdd);
+        session.updateList(req);
         Session mysession = (Session)req.getSession().getAttribute("session");
         BigDecimal totalCost = mysession.totalSum();
         req.setAttribute("totalCost", totalCost);

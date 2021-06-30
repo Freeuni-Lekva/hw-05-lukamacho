@@ -1,4 +1,0 @@
-127.0.0.1 - - [29/Jun/2021:21:59:10 +0400] "GET / HTTP/1.1" 200 1166 http-bio-8080-exec-1 1317
-127.0.0.1 - - [29/Jun/2021:21:59:11 +0400] "GET /productPage.jsp?id=HC HTTP/1.1" 200 368 http-bio-8080-exec-2 129
-127.0.0.1 - - [29/Jun/2021:21:59:11 +0400] "GET /store-images/Hoodie.jpg HTTP/1.1" 200 1166 http-bio-8080-exec-3 15
-127.0.0.1 - - [29/Jun/2021:21:59:12 +0400] "POST /product HTTP/1.1" 500 3227 http-bio-8080-exec-4 123

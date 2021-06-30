@@ -10,22 +10,13 @@ public class Catalog {
 
     public Catalog() {
         try {
-            Connection connector = Connector.getInstance();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+            Connection connector = Connector.getInstance(); } catch (ClassNotFoundException e) { e.printStackTrace(); } catch (SQLException throwables) { throwables.printStackTrace(); }
     }
     public ArrayList<Product> productCatalog() throws SQLException {
         ArrayList<Product> result = new ArrayList<>();
         ResultSet resultSet = null;
         Connection connection = null;
-        try {
-            connection = Connector.getInstance();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        try { connection = Connector.getInstance(); } catch (ClassNotFoundException e) { e.printStackTrace(); }
         Statement statement = connection.createStatement();
         String sqlScript = "SELECT * from products";
         try {
@@ -35,9 +26,7 @@ public class Catalog {
                         resultSet.getString("imagefile"),resultSet.getBigDecimal("price"));
                 result.add(cur);
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        } catch (SQLException throwables) { throwables.printStackTrace(); }
         return result;
     }
 
@@ -49,9 +38,7 @@ public class Catalog {
         Connection connection = null;
         try {
             connection = Connector.getInstance();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        } catch (ClassNotFoundException e) { e.printStackTrace(); }
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(sqlScript.toString());
         if(resultSet.next()){
@@ -60,5 +47,6 @@ public class Catalog {
         }
         return curProduct;
     }
+
 
 }
